@@ -10,35 +10,35 @@ impl Section {
 }
 
 pub struct CleaningPlan {
-    Section1: Section,
-    Section2: Section,
+    section1: Section,
+    section2: Section,
 }
 
 impl CleaningPlan {
-    fn new(Section1: Section, Section2: Section) -> CleaningPlan {
-        CleaningPlan { Section1, Section2 }
+    fn new(section1: Section, section2: Section) -> CleaningPlan {
+        CleaningPlan { section1, section2 }
     }
 
     pub fn is_fully_encompassing(self) -> bool {
-        if self.Section1.lo >= self.Section2.lo && self.Section1.hi <= self.Section2.hi {
+        if self.section1.lo >= self.section2.lo && self.section1.hi <= self.section2.hi {
             return true;
         }
-        if self.Section1.lo <= self.Section2.lo && self.Section1.hi >= self.Section2.hi {
+        if self.section1.lo <= self.section2.lo && self.section1.hi >= self.section2.hi {
             return true;
         }
         false
     }
 
     pub fn is_overlapping(self) -> bool {
-        let maxmin = if self.Section1.lo > self.Section2.lo {
-            self.Section1.lo
+        let maxmin = if self.section1.lo > self.section2.lo {
+            self.section1.lo
         } else {
-            self.Section2.lo
+            self.section2.lo
         };
-        let minmax = if self.Section1.hi < self.Section2.hi {
-            self.Section1.hi
+        let minmax = if self.section1.hi < self.section2.hi {
+            self.section1.hi
         } else {
-            self.Section2.hi
+            self.section2.hi
         };
 
         if maxmin <= minmax {
