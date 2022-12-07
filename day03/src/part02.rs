@@ -1,4 +1,3 @@
-use crate::group;
 use crate::group::Group;
 use crate::rucksack;
 
