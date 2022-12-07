@@ -10,8 +10,6 @@ pub fn part_02(data: &str) -> u32 {
         let line1: &str = chunk[0];
         let line2: &str = chunk[1]; 
         let line3: &str = chunk[2];
-        
-        dbg![line1, line2, line3];
 
         let elf_group = Group::new(line1, line2, line3);
 
