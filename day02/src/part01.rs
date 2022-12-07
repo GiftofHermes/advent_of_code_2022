@@ -1,4 +1,3 @@
-
 // The winner of the whole tournament is the player with the highest score.
 // Your total score is the sum of your scores for each round.
 // The score for a single round is the score for the shape you selected
@@ -11,8 +10,8 @@
 use crate::actions::Action;
 use crate::points;
 
-fn string_to_action(action: &str) -> Action { 
-    match action { 
+fn string_to_action(action: &str) -> Action {
+    match action {
         "A" | "X" => Action::Rock,
         "B" | "Y" => Action::Paper,
         "C" | "Z" => Action::Scissors,
@@ -21,7 +20,10 @@ fn string_to_action(action: &str) -> Action {
 }
 
 fn convert_to_point(line: &str) -> u32 {
-    let actions: Vec<Action> = line.split(' ').map(|action| string_to_action(action)).collect();
+    let actions: Vec<Action> = line
+        .split(' ')
+        .map(|action| string_to_action(action))
+        .collect();
     let enemy_action = actions[0];
     let action = actions[1];
 
@@ -29,8 +31,7 @@ fn convert_to_point(line: &str) -> u32 {
 }
 
 pub fn part_01(data: &str) -> u32 {
-    data
-        .split("\n")
+    data.split("\n")
         .map(|line| convert_to_point(line))
         .sum::<u32>()
 }

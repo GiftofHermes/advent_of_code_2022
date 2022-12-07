@@ -1,9 +1,8 @@
 use std::fs;
+mod group;
 mod part01;
 mod part02;
 mod rucksack;
-mod group;
-
 
 fn main() {
     let data = fs::read_to_string("data/input_test.txt").expect("File is manually given");
