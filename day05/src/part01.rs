@@ -1,8 +1,7 @@
-use crate::crane;
 use crate::parser;
 
-pub fn part_01(data: &str) -> u32 {
-    parser::parse(data);
-
-        0
+pub fn part_01(data: &str) -> String {
+    let mut crane = parser::parse(data);
+    crane.apply_instructions();
+    crane.highest_crates()
 }
